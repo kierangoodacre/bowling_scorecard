@@ -11,12 +11,12 @@ Scorecard.prototype.frameScore = function (pinCount){
 
 	if (this.frame <= 9 ){
 		this.throwCount = 1
-		this.pointsTally = this.frame
+		this.pointsTally += this.frame
 		return this.frame
 	}
 	else if (this.frame === 10){
 		this.throwCount = 0
-		this.pointsTally = this.frame
+		this.pointsTally += this.frame
 		return this.frame
 	}
 	else {

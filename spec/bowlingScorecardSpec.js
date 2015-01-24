@@ -22,7 +22,7 @@ describe ("Scorecard", function(){
 			expect(scorecard.frame).toEqual(10);
 		});
 
-		it("Takes a max of 10 frame per player", function(){
+		it("Takes a max of 10 frames per player", function(){
 			expect(scorecard.frameTotal).toEqual(10);
 		});
 	});
@@ -45,6 +45,12 @@ describe ("Scorecard", function(){
 		it("points are added based on pins knocked down", function(){
 			scorecard.frameScore(10);
 			expect(scorecard.pointsTally).toEqual(10);
+		});
+
+		it("points are added over a number of frames", function(){
+			scorecard.frameScore(10);
+			scorecard.frameScore(8);
+			expect(scorecard.pointsTally).toEqual(18);
 		});
 
 	});
