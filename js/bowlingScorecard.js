@@ -2,6 +2,7 @@ var Scorecard = function(){
 	this.frame = 10;
 	this.frameTotal = 10;
 	this.throwCount = 2;
+	this.pointsTally = 0;
 };
 
 Scorecard.prototype.frameScore = function (pinCount){
@@ -10,10 +11,12 @@ Scorecard.prototype.frameScore = function (pinCount){
 
 	if (this.frame <= 9 ){
 		this.throwCount = 1
+		this.pointsTally = this.frame
 		return this.frame
 	}
 	else if (this.frame === 10){
 		this.throwCount = 0
+		this.pointsTally = this.frame
 		return this.frame
 	}
 	else {

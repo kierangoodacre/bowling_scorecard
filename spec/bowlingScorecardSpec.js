@@ -40,6 +40,15 @@ describe ("Scorecard", function(){
 
 	});
 
+	describe("Points Tally", function(){
+
+		it("points are added based on pins knocked down", function(){
+			scorecard.frameScore(10);
+			expect(scorecard.pointsTally).toEqual(10);
+		});
+
+	});
+
 	// describe ("Player", function(){
 
 	// 	it("should take turns", function(){
