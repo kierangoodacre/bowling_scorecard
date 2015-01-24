@@ -30,7 +30,12 @@ describe ("Scorecard", function(){
 	describe("Throws per frame", function(){
 
 		it("Max of two", function(){
-			expect(scorecard.maxThrowCount).toEqual(2);
+			expect(scorecard.throwCount).toEqual(2);
+		});
+
+		it("End of frame if all pins knocked down", function(){
+			scorecard.frameScore(10);
+			expect(scorecard.throwCount).toEqual(0);
 		});
 
 	});
