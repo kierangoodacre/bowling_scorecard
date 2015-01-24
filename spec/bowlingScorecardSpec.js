@@ -22,8 +22,14 @@ describe ("Scorecard", function(){
 			expect(scorecard.frame).toEqual(10);
 		});
 
-		it("Takes a max of 10 frames per player", function(){
+		it("takes a max of 10 frames per player", function(){
 			expect(scorecard.frameTotal).toEqual(10);
+		});
+
+		it("after frame a player has 1 less frame to play", function(){
+			scorecard.frameScore(10);
+			scorecard.frameScore(10);
+			expect(scorecard.frameTotal).toEqual(8);
 		});
 	});
 
@@ -54,6 +60,15 @@ describe ("Scorecard", function(){
 		});
 
 	});
+
+	// describe("Strikes", function(){
+
+	// 	it("are achieved if 10 pins knocked down on first throw", function(){
+	// 		expect(scorecard.throwCount).toEqual(2);
+	// 		scorecard.frameScore(10);
+	// 		expect(scorecard.pointsTally).toEqual
+	// 	});
+	// });
 
 	// describe ("Player", function(){
 
