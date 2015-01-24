@@ -6,7 +6,7 @@ describe ("Scorecard", function(){
 		scorecard = new Scorecard();
 	});
 
-	describe("Scorecard", function(){
+	describe("Frames & Pins", function(){
 
 		it("has 1 frame with 10 pins", function(){
 			expect(scorecard.frame).toEqual(10);
@@ -17,9 +17,30 @@ describe ("Scorecard", function(){
 			expect(scorecard.frame).toEqual(8)
 		});
 
-		it("maximum score of 10 per frame", function(){
+		it("maximum score of 10 pins per frame", function(){
 			expect(scorecard.frameScore(11)).toBe("Score must be between 0..10");
+			expect(scorecard.frame).toEqual(10);
+		});
+
+		it("Takes a max of 10 frame per player", function(){
+			expect(scorecard.frameTotal).toEqual(10);
 		});
 	});
+
+	describe("Throws per frame", function(){
+
+		it("Max of two", function(){
+			expect(scorecard.maxThrowCount).toEqual(2);
+		});
+
+	});
+
+	// describe ("Player", function(){
+
+	// 	it("should take turns", function(){
+	// 		expect(scorecard.turns).toEqual();
+	// 	});
+
+	// });
 
 });
