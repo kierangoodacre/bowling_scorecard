@@ -6,7 +6,6 @@ var Scorecard = function(){
 };
 
 Scorecard.prototype.frameScore = function (pinCount){
-	
 	this.frame = pinCount;
 
 	if (this.frame <= 9 ){
@@ -31,9 +30,12 @@ Scorecard.prototype.frameScore = function (pinCount){
 };
 
 Scorecard.prototype.gameOver = function (){
-
 	if (this.frameTotal < 0){
 		this.frameTotal = 0
 	};
+};
 
+Scorecard.prototype.resetGame = function() {
+	this.frameTotal = 10;
+	this.pointsTally = 0
 };

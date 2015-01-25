@@ -51,6 +51,13 @@ describe ("Scorecard", function(){
 			scorecard.frameScore(10);
 			expect(scorecard.frameTotal).toEqual(0);
 		});
+
+		it("should be able to reset frames and points", function(){
+			scorecard.frameScore(10);
+			scorecard.resetGame();
+			expect(scorecard.frameTotal).toEqual(10);
+			expect(scorecard.pointsTally).toEqual(0);
+		});
 	});
 
 	describe("Throws per frame", function(){
