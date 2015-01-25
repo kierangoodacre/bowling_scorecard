@@ -6,6 +6,11 @@ describe ("Scorecard", function(){
 		scorecard = new Scorecard();
 	});
 
+	// Scorecard.prototype.endOfGame = function (){
+	// 	var frames = []
+	// 	[1..10].forEach -> scorecard.frameScore(10);
+	// };
+
 	describe("Frames & Pins", function(){
 
 		it("has 1 frame with 10 pins", function(){
@@ -30,6 +35,21 @@ describe ("Scorecard", function(){
 			scorecard.frameScore(10);
 			scorecard.frameScore(10);
 			expect(scorecard.frameTotal).toEqual(8);
+		});
+
+		it("end of game when no frames left", function(){
+			scorecard.frameScore(10);
+			scorecard.frameScore(10);
+			scorecard.frameScore(10);
+			scorecard.frameScore(10);
+			scorecard.frameScore(10);
+			scorecard.frameScore(10);
+			scorecard.frameScore(10);
+			scorecard.frameScore(10);
+			scorecard.frameScore(10);
+			scorecard.frameScore(10);
+			scorecard.frameScore(10);
+			expect(scorecard.frameTotal).toEqual(0);
 		});
 	});
 
