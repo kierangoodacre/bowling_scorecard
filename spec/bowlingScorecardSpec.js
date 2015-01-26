@@ -6,16 +6,8 @@ describe ("Scorecard", function(){
 		scorecard = new Scorecard();
 	});
 
-	// Scorecard.prototype.endOfGame = function (){
-	// 	var frames = []
-	// 	[1..10].forEach -> scorecard.frameScore(10);
-	// };
-
 	describe("Frames & Pins", function(){
 
-		it("has 1 frame with 10 pins", function(){
-			expect(scorecard.frame).toEqual(10);
-		});
 
 		it("points are assigned based on number of pins knocked down", function(){
 			scorecard.frameScore(8);
@@ -56,7 +48,7 @@ describe ("Scorecard", function(){
 			scorecard.frameScore(10);
 			scorecard.resetGame();
 			expect(scorecard.frameTotal).toEqual(10);
-			expect(scorecard.pointsTally).toEqual(0);
+			expect(scorecard.pointsTotal).toEqual(0);
 		});
 	});
 
@@ -68,7 +60,12 @@ describe ("Scorecard", function(){
 
 		it("End of frame if all pins knocked down", function(){
 			scorecard.frameScore(10);
-			expect(scorecard.throwCount).toEqual(0);
+			expect(scorecard.throwCount).toEqual(2);
+		});
+
+		it("throw count should reset after reaches zero", function() {
+			scorecard.frameScore(10);
+			expect(scorecard.throwCount).toEqual(2);
 		});
 
 	});
@@ -77,32 +74,25 @@ describe ("Scorecard", function(){
 
 		it("points are added based on pins knocked down", function(){
 			scorecard.frameScore(10);
-			expect(scorecard.pointsTally).toEqual(10);
+			expect(scorecard.pointsTotal).toEqual(10);
 		});
 
 		it("points are added over a number of frames", function(){
 			scorecard.frameScore(10);
 			scorecard.frameScore(8);
-			expect(scorecard.pointsTally).toEqual(18);
+			expect(scorecard.pointsTotal).toEqual(18);
 		});
 
+		// it("points are added to an array", function(){
+
+		// });
+
+		// it("if strike, next two frames points added to that frame", function(){
+		// 	scorecard.frameScore(10);
+		// 	scorecard.frameScore(8);
+		// 	scorecard.frameScore(8);
+		// 	expect(scorecard.pointsTotal).toEqual(44);
+		// });
+
 	});
-
-	// describe("Strikes", function(){
-
-	// 	it("are achieved if 10 pins knocked down on first throw", function(){
-	// 		expect(scorecard.throwCount).toEqual(2);
-	// 		scorecard.frameScore(10);
-	// 		expect(scorecard.pointsTally).toEqual
-	// 	});
-	// });
-
-	// describe ("Player", function(){
-
-	// 	it("should take turns", function(){
-	// 		expect(scorecard.turns).toEqual();
-	// 	});
-
-	// });
-
 });
