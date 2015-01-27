@@ -16,7 +16,7 @@ describe ("Scorecard", function(){
 
 		it("maximum score of 10 pins per frame", function(){
 			expect(scorecard.frameScore(11)).toBe("Score must be between 0..10");
-			expect(scorecard.frame).toEqual(10);
+			expect(scorecard.frame).toEqual(0);
 		});
 
 		it("takes a max of 10 frames per player", function(){
@@ -82,10 +82,6 @@ describe ("Scorecard", function(){
 			scorecard.frameScore(8);
 			expect(scorecard.pointsTotal).toEqual(18);
 		});
-
-		// it("points are added to an array", function(){
-
-		// });
 
 		// it("if strike, next two frames points added to that frame", function(){
 		// 	scorecard.frameScore(10);

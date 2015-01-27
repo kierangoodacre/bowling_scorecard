@@ -13,39 +13,35 @@ Scorecard.prototype.frameScore = function (pinCount){
 		this.throwCount -= 1
 		this.pointsTally.push(this.frame)
 		this.pointsTotal += this.frame
-		// this.pointsTally[this.frame] = this.pointsTotal
 		this.frameTotal -= 1
 		this.gameOver()
-		return this.frame
+		this.frame
 	}
 	else if (this.frame === 10){
 		this.throwCount -= 2
 		this.pointsTotal += this.frame
+		this.pointsTally.push(this.frame)
 		this.frameTotal -= 1
 		this.gameOver()
 		this.resetThrows()
 		this.resetFrame()
-		return this.frame
+		this.frame
 	}
 	else {
-		this.frame = 10
+		this.frame = 0
+		this.throwCount -= 0
 		this.gameOver()
 		return "Score must be between 0..10"
 	}
+	// while (pinCount === 10) {
+	// this.pointsTotal += this.pointsTally.slice(1,3).reduce(addTally, 0);
+	// }
 
 	// function addTally(a, b) {
-// 		return a + b;
-// 	};
+	// 	return a + b;
 
-// 	while (this.throwCount === 1 && this.frame === 10){
-// 		this.pointsTotal += this.pointsTally.slice(1,3).reduce(addTally, 0) 
-// 	};
-// };
-
-	// while (this.throwCount === 1 && this.frame === 10){
-
-	// }
 };
+
 
 Scorecard.prototype.gameOver = function (){
 	if (this.frameTotal < 0){
@@ -65,3 +61,13 @@ Scorecard.prototype.resetThrows = function(){
 Scorecard.prototype.resetFrame = function() {
 	this.frame = 0
 };
+
+Scorecard.prototype.strike = function() {
+	this.pointsTotal += this.pointsTally.slice(1,3).reduce(addTally, 0);
+	}
+
+	function addTally(a, b) {
+		return a + b;
+		
+};
+
